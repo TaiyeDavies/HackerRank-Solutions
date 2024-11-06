@@ -1,0 +1,27 @@
+# Its base and height are both equal to. It is drawn using # symbols and spaces. The last line is not preceded by any spaces.
+# Write a program that prints a staircase of different sizes.
+
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'staircase' function below.
+#
+# The function accepts INTEGER n as parameter.
+#
+
+def staircase(n):
+    #Iterate through the array and print spaces + #
+    for i in range(n):
+        print(" " * (n - i - 1) + "#" * (i + 1))
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    staircase(n)
+
