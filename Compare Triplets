@@ -1,0 +1,53 @@
+# The task is to find their comparison points by comparing a[0] with b[0], a[1] with b[1], and a[2] with b[2].
+# If a[i] > b[i], then Alice is awarded 1 point.
+# If a[i] < b[i], then Bob is awarded 1 point.
+# If a[i] = b[i], then neither person receives a point.
+# Comparison points is the total points a person earned.
+# Given a and b, determine their respective comparison points.
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'compareTriplets' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts following parameters:
+#  1. INTEGER_ARRAY a
+#  2. INTEGER_ARRAY b
+#
+
+def compareTriplets(a, b):
+    # define the length of one of the arrays since they are both equal
+    len_a = len(a)
+    #Initialize points for both players
+    a_list = 0
+    b_list = 0
+    # Loop through each index of the input lists `a` and `b` and return the comparison points as a list
+    for i in range(len_a):
+        # Compare Alice's and Bob's scores for each category
+        if a[i] > b[i]: a_list += 1 # Alice gets a point if her score is higher
+        elif a[i] < b[i]: b_list += 1 # Bob gets a point if her score is higher
+        # elif a[i] == b[i]: break # it stops the program run running completely
+    return [a_list, b_list]
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    a = list(map(int, input().rstrip().split()))
+
+    b = list(map(int, input().rstrip().split()))
+
+    result = compareTriplets(a, b)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+
