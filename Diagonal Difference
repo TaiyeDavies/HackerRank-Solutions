@@ -1,0 +1,43 @@
+#Question: Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def diagonalDifference(arr):
+    # Initialize counters for diagonals
+    left_to_right = 0
+    right_to_left = 0
+    # length of array
+    len_array = len(arr)
+
+    # Iterate through rows and columns or array
+    # if both indexes are equal, add all values in that diagonal 
+    # if the row + column = the last index, add all values in that diagonal
+    for i in range(len_array):
+        for j in range(len_array):
+            if i == j:
+                left_to_right += arr[i][j]
+            if i + j == n - 1:
+                right_to_left += arr[i][j]
+    return abs(left_to_right-right_to_left)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = []
+
+    for _ in range(n):
+        arr.append(list(map(int, input().rstrip().split())))
+
+    result = diagonalDifference(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
