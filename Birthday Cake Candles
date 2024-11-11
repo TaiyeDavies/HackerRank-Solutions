@@ -16,11 +16,12 @@ import sys
 def birthdayCakeCandles(candles):
     # initialize counter for tallest candle
     count = 0
+    tallest_candle = max(candles)
 
     # iterate through candles and compare with tallest candle
     # count how many tall candles there are
     for candle in candles:
-        if candles[candle] == max(candles):
+        if candle == tallest_candle:
          count += 1
     return count
 
