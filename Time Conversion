@@ -1,0 +1,43 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'timeConversion' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def timeConversion(s):
+    # Initialize hour variable as an integer to change to 24-hour format
+    # Remove "AM and "PM" format 
+    hour  = int(s[:2])
+    clock_am_pm = s[-2:]
+
+    # If it is PM, add 12 hours to the number
+    # if it's in AM and it's 12, change to "00"
+    # if it's less than 10, add padded zeros to the hour so it returns at two string numbers
+    if hour != 12 and clock_am_pm == "PM":
+        hour += 12
+    if hour == 12 and clock_am_pm == "AM":
+        hour = 00
+    if hour < 10:
+        hour = f"{hour:02}"
+    
+    return (str(hour) + s[2:-2])
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = timeConversion(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
